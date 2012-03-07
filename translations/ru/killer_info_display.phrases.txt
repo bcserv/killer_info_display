@@ -1,0 +1,92 @@
+"Phrases"
+{
+	"name"
+	{
+		"ru"		"Информация Об Убийце"
+	}
+
+	"chat_basic"
+	{
+		"ru"		"{teamcolor}{1} {olive}при помощи {2}{olive}{3} и у него осталось {green}{4} {olive}здоровья{5} {olive}хп"
+	}
+
+	"chat_weapon"
+	{
+		"ru"		"при помощи {green}{1}"
+	}
+
+	"chat_distance"
+	{
+		"ru"		"с расстояния {green}{1} {olive}{2}"
+	}
+
+	"chat_armor"
+	{
+		"ru"		"и {green}{1} {olive}{2}"
+	}
+
+	"panel_killer"
+	{
+		"ru"		"{1} убил вас"
+	}
+
+	"panel_weapon"
+	{
+		"ru"		"Оружие: {1}"
+	}
+
+	"panel_health"
+	{
+		"ru"		"Осталось здоровья: {1} хп"
+	}
+
+	"panel_armor"
+	{
+		"ru"		"{1}: {2}"
+	}
+
+	"panel_distance"
+	{
+		"ru"		"Расстояние: {1} {2}"
+	}
+
+	"armor"
+	{
+		"ru"		"броня"
+	}
+
+	"meters"
+	{
+		"ru"		"метра"
+	}
+
+	"feet"
+	{
+		"ru"		"фута"
+	}
+
+	"announcement"
+	{
+		"ru"		"В чате {blue}!settings {default}для вызова меню настроек или {blue}!killerinfo {default}для вкл/выкл Информации Об Убийце."
+	}
+
+	"kid_enabled"
+	{
+		"ru"		"Теперь вы будете видеть информацию об игроке, который вас убил.	"
+	}
+
+	"kid_disabled"
+	{
+		"ru"		"Теперь вы не будете видеть информацию об игроке, который вас убил."
+	}
+
+	"enabled"
+	{
+		"ru"		"включен "
+	}
+
+	"disabled"
+	{
+		"ru"		"отключен"
+	}
+}

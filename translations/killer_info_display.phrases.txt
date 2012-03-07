@@ -1,0 +1,118 @@
+"Phrases"
+{
+	"name"
+	{
+		"en"		"Killer Info Display"
+	}
+
+	"chat_basic"
+	{
+		"#format"	"{1:s},{2:s},{3:s},{4:d},{5:s}"
+		"en"		"{teamcolor}{1} {olive}killed you{2}{olive}{3} and has {green}{4} {olive}health{5} {olive}left"
+	}
+
+	"chat_weapon"
+	{
+		"#format"	"{1:s}"
+		"en"		"with {green}{1}"
+	}
+
+	"chat_distance"
+	{
+		"#format"	"{1:.1f},{2:s}"
+		"en"		"at a distance of {green}{1} {olive}{2}"
+	}
+
+	"chat_armor"
+	{
+		"#format"	"{1:d},{2:t}"
+		"en"		"and {green}{1} {olive}{2}"
+	}
+
+	"panel_killer"
+	{
+		"#format"	"{1:s}"
+		"en"		"{1} killed you"
+	}
+
+	"panel_weapon"
+	{
+		"#format"	"{1:s}"
+		"en"		"Weapon:    {1}"
+	}
+
+	"panel_health"
+	{
+		"#format"	"{1:d}"
+		"en"		"Health:    {1} left"
+	}
+
+	"panel_armor"
+	{
+		"#format"	"{1:t},{2:d}"
+		"en"		"{1}:    {2} left"
+	}
+
+	"panel_distance"
+	{
+		"#format"	"{1:.1f},{2:s}"
+		"en"		"Distance:    {1} {2}"
+	}
+
+	"armor"
+	{
+		"en"		"Armor"
+	}
+
+	"suitpower"
+	{
+		"en"		"Suitpower"
+	}
+
+	"dominated"
+	{
+		"#format"	"{1:s}"
+		"en"		"{1} dominated !"
+	}
+
+	"revenge"
+	{
+		"#format"	"{1:s}"
+		"en"		"{1} got revenge !"
+	}
+
+	"meters"
+	{
+		"en"		"meters"
+	}
+
+	"feet"
+	{
+		"en"		"feet"
+	}
+
+	"announcement"
+	{
+		"en"		"Type {blue}!settings {default}in chat to open the settings menu or {blue}!killerinfo {default}to enable/disable Killer Info Display."
+	}
+
+	"kid_enabled"
+	{
+		"en"		"Now you'll see info about player who killed you."
+	}
+
+	"kid_disabled"
+	{
+		"en"		"Now you will not see info about player who killed you."
+	}
+
+	"enabled"
+	{
+		"en"		"Enabled "
+	}
+
+	"disabled"
+	{
+		"en"		"Disabled"
+	}
+}
