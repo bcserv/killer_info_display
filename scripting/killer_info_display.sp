@@ -4,7 +4,7 @@
 #include <clientprefs>
 #include <smlib>
 
-#define PLUGIN_VERSION "1.3.1"
+#define PLUGIN_VERSION "1.4.0"
 
 
 /****************************************************************
