@@ -7,22 +7,22 @@
 
 	"chat_basic"
 	{
-		"de"		"{teamcolor}{1} {olive}hat dich{2}{3}{olive} getötet und hat noch {green}{4} {olive}hp{5} {olive}übrig"
+		"de"		"{T}{1} {N}hat dich{2}{3}{olive} getötet und hat noch {T}{4} {N}hp{5} übrig"
 	}
 
 	"chat_weapon"
 	{
-		"de"		"mit {green}{1}"
+		"de"		"mit {T}{1}{N}"
 	}
 
 	"chat_distance"
 	{
-		"de"		"über eine Distanz von {green}{1} {olive}{2}n"
+		"de"		"über eine Distanz von {T}{1} {N}{2}"
 	}
 
 	"chat_armor"
 	{
-		"de"		"and {green}{1} {olive}{2}"
+		"de"		"and {T}{1} {N}{2}"
 	}
 
 	"panel_killer"
@@ -62,12 +62,12 @@
 
 	"dominated"
 	{
-		"de"		"{1} dominiert !"
+		"de"		"{T}{1} {G}dominiert !"
 	}
 
 	"revenge"
 	{
-		"de"		"{1} hat Rache geübt !"
+		"de"		"{T}{1} {G}hat Rache geübt !"
 	}
 
 	"meters"
@@ -82,7 +82,7 @@
 
 	"announcement"
 	{
-		"de"		"Schreibe {blue}!settings {default}in den Chat um das Optionsmenü zu öffnen oder {blue}!killerinfo {default}um die Killer Info Anzeige ein/aus - zuschalten."
+		"de"		"{OG}Schreibe {T}!settings {OG}in den Chat um das Optionsmenü zu öffnen oder {T}!killerinfo {OG}um die Killer Info Anzeige ein/aus - zuschalten."
 	}
 
 	"kid_enabled"

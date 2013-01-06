@@ -7,31 +7,31 @@
 
 	"chat_basic"
 	{
-		"#format"	"{1:s},{2:s},{3:s},{4:d},{5:s}"
-		"en"		"{teamcolor}{1} {olive}killed you{2}{olive}{3} and has {green}{4} {olive}health{5} {olive}left"
+		"#format"	"{1:N},{2:s},{3:s},{4:d},{5:s}"
+		"en"		"{T}{1} {N}killed you{2}{3} and has {T}{4} {N}health{5} left"
 	}
 
 	"chat_weapon"
 	{
 		"#format"	"{1:s}"
-		"en"		"with {green}{1}"
+		"en"		"with {T}{1}{N}"
 	}
 
 	"chat_distance"
 	{
 		"#format"	"{1:.1f},{2:s}"
-		"en"		"at a distance of {green}{1} {olive}{2}"
+		"en"		"at a distance of {T}{1} {N}{2}"
 	}
 
 	"chat_armor"
 	{
 		"#format"	"{1:d},{2:t}"
-		"en"		"and {green}{1} {olive}{2}"
+		"en"		"and {T}{1} {N}{2}"
 	}
 
 	"panel_killer"
 	{
-		"#format"	"{1:s}"
+		"#format"	"{1:N}"
 		"en"		"{1} killed you"
 	}
 
@@ -71,14 +71,14 @@
 
 	"dominated"
 	{
-		"#format"	"{1:s}"
-		"en"		"{1} dominated !"
+		"#format"	"{1:N}"
+		"en"		"{T}{1} {G}dominated !"
 	}
 
 	"revenge"
 	{
-		"#format"	"{1:s}"
-		"en"		"{1} got revenge !"
+		"#format"	"{1:N}"
+		"en"		"{T}{1} {G}got revenge !"
 	}
 
 	"meters"
@@ -93,17 +93,17 @@
 
 	"announcement"
 	{
-		"en"		"Type {blue}!settings {default}in chat to open the settings menu or {blue}!killerinfo {default}to enable/disable Killer Info Display."
+		"en"		"{OG}Type {T}!settings {OG}in chat to open the settings menu or {T}!killerinfo {OG}to enable/disable Killer Info Display."
 	}
 
 	"kid_enabled"
 	{
-		"en"		"Now you'll see info about player who killed you."
+		"en"		"Enabled showing information about your killer after death."
 	}
 
 	"kid_disabled"
 	{
-		"en"		"Now you will not see info about player who killed you."
+		"en"		"Disabled showing information about your killer after death."
 	}
 
 	"enabled"

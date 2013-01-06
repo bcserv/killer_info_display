@@ -7,22 +7,22 @@
 
 	"chat_basic"
 	{
-		"ru"		"{teamcolor}{1} {olive}при помощи {2}{olive}{3} и у него осталось {green}{4} {olive}здоровья{5} {olive}хп"
+		"ru"		"{T}{1} {N}при помощи {2}{3} и у него осталось {T}{4} {N}здоровья{5} хп"
 	}
 
 	"chat_weapon"
 	{
-		"ru"		"при помощи {green}{1}"
+		"ru"		"при помощи {T}{1}{N}"
 	}
 
 	"chat_distance"
 	{
-		"ru"		"с расстояния {green}{1} {olive}{2}"
+		"ru"		"с расстояния {T}{1} {N}{2}"
 	}
 
 	"chat_armor"
 	{
-		"ru"		"и {green}{1} {olive}{2}"
+		"ru"		"и {T}{1} {N}{2}"
 	}
 
 	"panel_killer"
@@ -67,7 +67,7 @@
 
 	"announcement"
 	{
-		"ru"		"В чате {blue}!settings {default}для вызова меню настроек или {blue}!killerinfo {default}для вкл/выкл Информации Об Убийце."
+		"ru"		"{OG}В чате {T}!settings {OG}для вызова меню настроек или {T}!killerinfo {OG}для вкл/выкл Информации Об Убийце."
 	}
 
 	"kid_enabled"

@@ -3,7 +3,6 @@
 #include <sourcemod>
 #include <clientprefs>
 #include <smlib>
-#include <colors>
 
 #define PLUGIN_VERSION "1.3.1"
 
@@ -79,12 +78,8 @@ public OnPluginStart()
 		Format(menutitle, sizeof(menutitle), "%T", "name", LANG_SERVER);
 		SetCookieMenuItem(PrefMenu, 0, menutitle);
 		cookie = RegClientCookie("killerinfo", "Enable (\"on\") / Disable (\"off\") Display of Killer Info", CookieAccess_Public);
-		
-		for (new client=1; client <= MaxClients; client++) {
-			
-			if (!IsClientInGame(client)) {
-				continue;
-			}
+
+		LOOP_CLIENTS(client, CLIENTFILTER_INGAME | CLIENTFILTER_NOBOTS) {
 
 			if (!AreClientCookiesCached(client)) {
 				continue;
@@ -152,9 +147,16 @@ public PrefMenuHandler(Handle:prefmenu, MenuAction:action, client, item)
 
 public Action:Command_KillerInfo(client, args)
 {
+	if (client == 0) {
+		ReplyToCommand(client, "[Killer Info] This command can only be run by players.");
+		return Plugin_Handled;
+	}
+
 	if (enabledForClient[client]) {
 		enabledForClient[client] = false;
-		CPrintToChat(client, "{red}[Killer Info] %t", "kid_disabled");
+
+		Color_ChatSetSubject(client);
+		Client_Reply(client, "{G}[Killer Info] {N}%t", "kid_disabled");
 
 		if (cookiesEnabled) {
 			SetClientCookie(client, cookie, "off");
@@ -162,12 +164,16 @@ public Action:Command_KillerInfo(client, args)
 	}
 	else {
 		enabledForClient[client] = true;
-		CPrintToChat(client, "{blue}[Killer Info] %t", "kid_enabled");
+
+		Color_ChatSetSubject(client);
+		Client_Reply(client, "{G}[Killer Info] {N}%t", "kid_enabled");
 
 		if (cookiesEnabled) {
 			SetClientCookie(client, cookie, "on");
 		}
-	}	
+	}
+
+	return Plugin_Handled;
 }
 
 public Action:Timer_Announce(Handle:timer, any:serial)
@@ -179,8 +185,9 @@ public Action:Timer_Announce(Handle:timer, any:serial)
 		return Plugin_Stop;
 	}
 
-	CPrintToChat(client, "{blue}[Killer Info] {default}%t", "announcement");
-	
+	Color_ChatSetSubject(client);
+	Client_PrintToChat(client, false, "{G}[Killer Info] {N}%t", "announcement");
+
 	return Plugin_Stop;
 }
 
@@ -201,7 +208,6 @@ public Action:Event_PlayerDeath(Handle:event, const String:name[], bool:dontBroa
 
 	decl
 		String:weapon[32],
-		String:attackerName[MAX_NAME_LENGTH],
 		String:unitType[8],
 		String:distanceType[5];
 
@@ -215,7 +221,6 @@ public Action:Event_PlayerDeath(Handle:event, const String:name[], bool:dontBroa
 	new bool:showWeapon = GetConVarBool(cvShowweapon);
 
 	GetEventString(event, "weapon", weapon, sizeof(weapon));		
-	GetClientName(attacker, attackerName, sizeof(attackerName));
 	GetConVarString(cvDistancetype, distanceType, sizeof(distanceType));
 
 	if (showArmorLeft > 0) {
@@ -262,12 +267,13 @@ public Action:Event_PlayerDeath(Handle:event, const String:name[], bool:dontBroa
 			Format(chat_armor, sizeof(chat_armor), " %t", "chat_armor", armor, showArmorLeft == 1 ? "armor" : "suitpower");
 		}
 
-		CPrintToChatEx(
+		Color_ChatSetSubject(attacker);
+		Client_PrintToChat(
 			client,
-			attacker,
-			"{teamcolor}[Killer Info] %t",
+			false,
+			"{G}[Killer Info] {N}%t",
 			"chat_basic",
-			attackerName,
+			attacker,
 			chat_weapon,
 			chat_distance,
 			healthLeft,
@@ -275,22 +281,22 @@ public Action:Event_PlayerDeath(Handle:event, const String:name[], bool:dontBroa
 		);
 
 		if (dominated) {
-			CPrintToChatEx(
+			Color_ChatSetSubject(attacker);
+			Client_PrintToChat(
 				client,
-				attacker,
-				"{teamcolor}[Killer Info] %t",
-				"dominated",
-				attackerName
+				false,
+				"{G}[Killer Info] {N}%t",
+				"dominated", attacker
 			);
 		}
-		
+
 		if (revenge) {
-			CPrintToChatEx(
+			Color_ChatSetSubject(attacker);
+			Client_PrintToChat(
 				client,
-				attacker,
-				"{teamcolor}[Killer Info] %t",
-				"revenge",
-				attackerName
+				false,
+				"{G}[Killer Info] {N}%t",
+				"revenge", attacker
 			);
 		}
 	}
@@ -301,7 +307,7 @@ public Action:Event_PlayerDeath(Handle:event, const String:name[], bool:dontBroa
 		new Handle:panel= CreatePanel();
 		decl String:buffer[128];
 
-		Format(buffer, sizeof(buffer), "%t", "panel_killer", attackerName);
+		Format(buffer, sizeof(buffer), "%t", "panel_killer", attacker);
 		SetPanelTitle(panel, buffer);
 
 		DrawPanelItem(panel, "", ITEMDRAW_SPACER);
@@ -327,13 +333,27 @@ public Action:Event_PlayerDeath(Handle:event, const String:name[], bool:dontBroa
 		DrawPanelItem(panel, "", ITEMDRAW_SPACER);
 
 		if (dominated) {
-			Format(buffer, sizeof(buffer), "%t", "dominated", attackerName);
-			DrawPanelItem(panel, buffer, ITEMDRAW_DEFAULT);
+			decl String:strippedText[64];
+			Format(buffer, sizeof(buffer), "%t", "dominated", attacker);
+
+			// We remove all colors, by parsing them first
+			// and then stripping the control codes, ugly - but it works.
+			Color_ParseChatText(buffer, strippedText, sizeof(strippedText));
+			Color_StripFromChatText(strippedText, strippedText, sizeof(strippedText));
+
+			DrawPanelItem(panel, strippedText, ITEMDRAW_DEFAULT);
 		}
 
 		if (revenge) {
-			Format(buffer, sizeof(buffer), "%t", "revenge", attackerName);
-			DrawPanelItem(panel, buffer, ITEMDRAW_DEFAULT);
+			decl String:strippedText[64];
+			Format(buffer, sizeof(buffer), "%t", "revenge", attacker);
+
+			// We remove all colors, by parsing them first
+			// and then stripping the control codes, ugly - but it works.
+			Color_ParseChatText(buffer, strippedText, sizeof(strippedText));
+			Color_StripFromChatText(strippedText, strippedText, sizeof(strippedText));
+
+			DrawPanelItem(panel, strippedText, ITEMDRAW_DEFAULT);
 		}
 
 		SetPanelCurrentKey(panel, 10);
@@ -349,7 +369,7 @@ public Handler_DoNothing(Handle:menu, MenuAction:action, param1, param2) {}
 /***************************************************************
 			P L U G I N    F U N C T I O N S
 ****************************************************************/
- 
+
 ClientIngameAndCookiesCached(client)
 {
 	decl String:preference[8];
@@ -357,15 +377,15 @@ ClientIngameAndCookiesCached(client)
 
 	if (StrEqual(preference, "")) {
 		enabledForClient[client] = GetConVarBool(cvDefaultPref);
-		
-		new Float:announceTime = GetConVarFloat(cvAnnouncetime);
-
-		if (announceTime > 0.0) {
-			CreateTimer(announceTime, Timer_Announce, GetClientSerial(client));
-		}
 	}
 	else {
 		enabledForClient[client] = !StrEqual(preference, "off", false);
+	}
+
+	new Float:announceTime = GetConVarFloat(cvAnnouncetime);
+
+	if (announceTime > 0.0) {
+		CreateTimer(announceTime, Timer_Announce, GetClientSerial(client));
 	}
 }
 
