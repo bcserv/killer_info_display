@@ -46,6 +46,12 @@ new
 			F O R W A R D   P U B L I C S
 *****************************************************************/
 
+public APLRes:AskPluginLoad2(Handle:myself, bool:late, String:error[], err_max) 
+{ 
+    MarkNativeAsOptional("GetUserMessageType"); 
+    return APLRes_Success; 
+}
+
 public OnPluginStart()
 {	
 	// ConVars
