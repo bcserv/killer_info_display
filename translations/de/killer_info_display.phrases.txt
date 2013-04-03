@@ -7,7 +7,7 @@
 
 	"chat_basic"
 	{
-		"de"		"{T}{1} {N}hat dich{2}{3}{olive} getötet und hat noch {T}{4} {N}hp{5} übrig"
+		"de"		"{T}{1} {N}hat dich{2}{3}{OG} getötet und hat noch {T}{4} {N}hp{5} übrig"
 	}
 
 	"chat_weapon"
@@ -22,7 +22,7 @@
 
 	"chat_armor"
 	{
-		"de"		"and {T}{1} {N}{2}"
+		"de"		"und {T}{1} {N}{2}"
 	}
 
 	"panel_killer"
@@ -52,7 +52,7 @@
 
 	"armor"
 	{
-		"de"		"Armierung"
+		"de"		"Panzerung"
 	}
 
 	"suitpower"
