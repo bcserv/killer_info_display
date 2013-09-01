@@ -1,0 +1,107 @@
+"Phrases"
+{
+	"name"
+	{
+		"es"		"Informacion de Asesino"
+	}
+
+	"chat_basic"
+	{
+		"es"		"{T}{1} {N} te ha asesinado {2}{3} y le queda {T}{4} {N}Salud{5} restante"
+	}
+
+	"chat_weapon"
+	{
+		"es"		"con {T}{1}{N}"
+	}
+
+	"chat_distance"
+	{
+		"es"		"distancia de {T}{1} {N}{2}"
+	}
+
+	"chat_armor"
+	{
+		"es"		"y {T}{1} {N}{2}"
+	}
+
+	"panel_killer"
+	{
+		"es"		"{1} te ha asesinado"
+	}
+
+	"panel_weapon"
+	{
+		"es"		"Arma:    {1}"
+	}
+
+	"panel_health"
+	{
+		"es"		"Salud:    {1} restante"
+	}
+
+	"panel_armor"
+	{
+		"es"		"{1}:    {2} restante"
+	}
+
+	"panel_distance"
+	{
+		"es"		"Distancia:    {1} {2}"
+	}
+
+	"armor"
+	{
+		"es"		"Armadura"
+	}
+
+	"suitpower"
+	{
+		"es"		"Energia Chaleco"
+	}
+
+	"dominated"
+	{
+		"es"		"{T}{1} {G}dominado !"
+	}
+
+	"revenge"
+	{
+		"es"		"{T}{1} {G}se ha vengado !"
+	}
+
+	"meters"
+	{
+		"es"		"metros"
+	}
+
+	"feet"
+	{
+		"es"		"pies"
+	}
+
+	"announcement"
+	{
+		"es"		"{OG}Escribe {T}!settings {OG}en el chat, para abrir la configuracion de Informacion de Asesino. O {T}!killerinfo {OG}para activar o desactivar la informacion de Asesino al Morir."
+	}
+
+	"kid_enabled"
+	{
+		"es"		"Muestra de informacion de Asesino - Desactivado"
+	}
+
+	"kid_disabled"
+	{
+		"es"		"Muestra de informacion de Asesino - Desactivado"
+	}
+
+	"enabled"
+	{
+		"es"		"Activado "
+	}
+
+	"disabled"
+	{
+		"es"		"Desactivado"
+	}
+}
