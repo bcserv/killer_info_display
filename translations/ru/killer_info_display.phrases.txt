@@ -7,52 +7,78 @@
 
 	"chat_basic"
 	{
-		"ru"		"{T}{1} {N}при помощи {2}{3} и у него осталось {T}{4} {N}здоровья{5} хп"
+        "#format"        "{1:N},{2:s},{3:s},{4:d},{5:s}"
+		"ru"		"{T}{1} {N}при помощи {2}{3} и у него осталось {T}{4} {N}здоровья{5} оз"
 	}
 
 	"chat_weapon"
 	{
+        "#format"        "{1:s}"
 		"ru"		"при помощи {T}{1}{N}"
 	}
 
 	"chat_distance"
 	{
+        "#format"        "{1:.1f},{2:s}"
 		"ru"		"с расстояния {T}{1} {N}{2}"
 	}
 
 	"chat_armor"
 	{
+        "#format"        "{1:d},{2:t}"
 		"ru"		"и {T}{1} {N}{2}"
 	}
 
 	"panel_killer"
 	{
+	    "#format"        "{1:N}"
 		"ru"		"{1} убил вас"
 	}
 
 	"panel_weapon"
 	{
+	    "#format"        "{1:s}"
 		"ru"		"Оружие: {1}"
 	}
 
 	"panel_health"
 	{
-		"ru"		"Осталось здоровья: {1} хп"
+	    "#format"        "{1:d}"
+		"ru"		"Осталось здоровья: {1} оз"
 	}
 
 	"panel_armor"
 	{
+	    "#format"        "{1:t},{2:d}"
 		"ru"		"{1}: {2}"
 	}
 
 	"panel_distance"
 	{
+	    "#format"        "{1:.1f},{2:s}"
 		"ru"		"Расстояние: {1} {2}"
 	}
 
 	"armor"
 	{
 		"ru"		"броня"
+	}
+	
+    "suitpower"
+    {
+        "ru"        "костюм"
+    }
+	
+	"dominated"
+	{
+		"#format"	"{1:N}"
+		"ru"		"{T}{1} {G}доминирует !"
+	}
+
+	"revenge"
+	{
+		"#format"	"{1:N}"
+		"ru"		"{T}{1} {G}отомстил !"
 	}
 
 	"meters"
