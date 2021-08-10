@@ -229,6 +229,8 @@ public Action:Event_PlayerDeath(Handle:event, const String:name[], bool:dontBroa
 	GetEventString(event, "weapon", weapon, sizeof(weapon));		
 	GetConVarString(cvDistancetype, distanceType, sizeof(distanceType));
 
+	SetGlobalTransTarget(client);
+
 	if (showArmorLeft > 0) {
 
 		if (showArmorLeft == 1) {
@@ -399,6 +401,8 @@ DisplaySettingsMenu(client)
 {
 	decl String:MenuItem[128];
 	new Handle:prefmenu = CreateMenu(PrefMenuHandler);
+
+	SetGlobalTransTarget(client);
 
 	Format(MenuItem, sizeof(MenuItem), "%t", "name");
 	SetMenuTitle(prefmenu, MenuItem);
