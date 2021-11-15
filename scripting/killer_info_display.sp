@@ -146,6 +146,13 @@ public PrefMenuHandler(Handle:prefmenu, MenuAction:action, client, item)
 
 		DisplaySettingsMenu(client);
 	}
+	else if (action == MenuAction_Cancel)
+	{
+		if (item == MenuCancel_ExitBack)
+		{
+			ShowCookieMenu(client);
+		}
+	}
 	else if (action == MenuAction_End) {
 		CloseHandle(prefmenu);
 	}
@@ -401,6 +408,7 @@ DisplaySettingsMenu(client)
 {
 	decl String:MenuItem[128];
 	new Handle:prefmenu = CreateMenu(PrefMenuHandler);
+	SetMenuOptionFlags(prefmenu, MENUFLAG_BUTTON_EXITBACK);
 
 	SetGlobalTransTarget(client);
 
